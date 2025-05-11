@@ -3,15 +3,23 @@ import { Gamepad2 } from "lucide-react";
 import Board from "./components/Board.jsx";
 import { useState } from "react";
 import { BoardState } from "./types.js";
+import { checkWinner } from "./helpers/game-logic.js";
 
 function App() {
   const [board, setBoard] = useState<BoardState>(Array(9).fill(null));
+  const winner = checkWinner(board);
 
   const currentPlayer =
     board.filter((square) => square !== null).length % 2 === 0 ? "X" : "O";
 
   const handleSquareClick = (index: number) => {
+    if (winner || board[index] !== null) return;
     setBoard(board.map((square, i) => (i === index ? currentPlayer : square)));
+  };
+
+  const getGameStatus = () => {
+    if (winner) return `Player ${winner} wins!`;
+    return `Player ${currentPlayer}'s Turn`;
   };
 
   return (
@@ -24,7 +32,7 @@ function App() {
 
         <div>
           <p className="text-xl font-semibold text-gray-100">
-            Player {currentPlayer}'s Turn
+            {getGameStatus()}
           </p>
         </div>
 
