@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gray-100: #8899a6;
+  --color-gray-200: #38444d;
+  --color-pink: #F231A5;
+  --color-blue-100: #0a0c21;
+  --color-blue-200: #000010;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: white;
+  background-color: var(--color-blue-200);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-pink);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-gray-200);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-blue-200);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: var(--color-pink);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-blue-100);
+    background-color: var(--color-gray-100);
+  }
+
+  a:hover {
+    color: var(--color-pink);
+  }
+
+  button {
+    background-color: var(--color-gray-200);
+  }
+}
