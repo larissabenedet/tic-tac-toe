@@ -27,3 +27,7 @@ export const checkWinner = (board: BoardState) => {
   }
   return null;
 };
+
+export const isBoardFull = (board: BoardState) => {
+  return board.every((square) => square !== null);
+};
